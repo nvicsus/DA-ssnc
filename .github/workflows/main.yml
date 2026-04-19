@@ -2,8 +2,16 @@ name: Create PR in downstream repo
 
 on:
   pull_request:
-    types: [opened, reopened]
+    types: [opened, reopened, closed]
 
 jobs:
   call-workflow:
     uses: nvicsus/automation/.github/workflows/sync_pr.yml@main
+  debug-step:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Extract PR info
+        id: pr
+        run: |
+          echo "trigger_reson=${{ github.event.action }}" >> $GITHUB_ENV
