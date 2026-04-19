@@ -9,3 +9,12 @@ jobs:
     uses: nvicsus/automation/.github/workflows/sync_pr.yml@main
     secrets:
       PAT: ${{ secrets.TARGET_REPO_PAT }}
+
+  debug-step:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Extract PR info
+        id: pr
+        run: |
+          echo "trigger_reson=${{ github.event.action }}" >> $GITHUB_ENV
