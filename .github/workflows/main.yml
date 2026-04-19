@@ -7,9 +7,11 @@ on:
 jobs:
   call-workflow:
     uses: nvicsus/automation/.github/workflows/sync_pr.yml@main
+    with:
+      trigger_reason: "${{ github.event.action }}"
+
   debug-step:
     runs-on: ubuntu-latest
-
     steps:
       - name: Extract PR info
         id: pr
