@@ -18,4 +18,4 @@ jobs:
       - name: Get PR reason
         id: prr
         run: |
-          echo "trigger_reson=${{ github.event.action }}" >> $GITHUB_ENV
+          echo "trigger_reason=${{ github.event.action }}" >> $GITHUB_ENV
