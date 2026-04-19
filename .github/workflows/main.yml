@@ -8,4 +8,4 @@ jobs:
   call-workflow:
     uses: nvicsus/automation/.github/workflows/sync_pr.yml@main
     secrets:
-      PAT: ${{ secrets.GITHUB_TOKEN }}
+      PAT: ${{ secrets.TARGET_REPO_PAT }}
