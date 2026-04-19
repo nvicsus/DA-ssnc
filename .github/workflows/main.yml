@@ -7,6 +7,8 @@ on:
 jobs:
   call-workflow:
     uses: nvicsus/automation/.github/workflows/sync_pr.yml@main
+    with:
+      trigger_reason: "${{ github.event.action }}"    
     secrets:
       PAT: ${{ secrets.TARGET_REPO_PAT }}
 
