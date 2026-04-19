@@ -29,7 +29,11 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.TARGET_REPO_PAT }}
         run: |
-            $GITHUB_REPOSITORY
+            echo "title $(pr_title)"
+            echo "body $(pr_body)"
+            echo "head $(pr_head)"
+            echo "base $(pr_base)"
+            echo "target_repo $(target_repo)"
             URL="https://api.github.com/repos/$(target_owner)/$(target_repo)/pulls"
             request_body=$(jq -n \
               --arg pr_title "$pr_title" \
