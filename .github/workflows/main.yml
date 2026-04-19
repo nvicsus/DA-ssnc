@@ -10,7 +10,7 @@ jobs:
     secrets:
       PAT: ${{ secrets.TARGET_REPO_PAT }}
 
-debug-step:
+  debug-step:
     runs-on: ubuntu-latest
 
     steps:
