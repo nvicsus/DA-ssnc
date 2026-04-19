@@ -14,7 +14,7 @@ debug-step:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Extract PR info
-        id: pr
+      - name: Get PR reason
+        id: prr
         run: |
           echo "trigger_reson=${{ github.event.action }}" >> $GITHUB_ENV
