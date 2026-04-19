@@ -8,12 +8,14 @@ jobs:
   call-workflow:
     uses: nvicsus/automation/.github/workflows/sync_pr.yml@main
     with:
-      trigger_reason: "${{ github.event.action }}"
+      trigger_reason: "${{ github.event.action }}"    
+    secrets:
+      PAT: ${{ secrets.TARGET_REPO_PAT }}
 
   debug-step:
     runs-on: ubuntu-latest
     steps:
-      - name: Extract PR info
-        id: pr
+      - name: Get PR reason
+        id: prr
         run: |
           echo "trigger_reson=${{ github.event.action }}" >> $GITHUB_ENV
